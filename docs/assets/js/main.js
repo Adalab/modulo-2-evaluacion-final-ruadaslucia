@@ -1,1 +1,1 @@
-"use strict";
+"use strict";const inputUser=document.querySelector(".js-inputSearchUser"),searchButton=document.querySelector(".js-searchButton "),resetButton=document.querySelector(".js-resetButton ");
