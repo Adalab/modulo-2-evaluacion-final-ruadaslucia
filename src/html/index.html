@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
+    <title>Big Apple Cocktails</title>
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="icon" href="" />
   </head>
-
   <body>
-    <include src="./partials/main.html"></include>
+    <main class="main">
+      <div class="main__searchZone">
+        <h1 class="main__searchZone--title">Cocktails Searcher</h1>
+        <div class="main__searchZone--searcher">
+          <input class="js-inputSearchUser inputSearchUser" type="text" />
+          <button class="js-searchButton searchButton">Search</button>
+          <button class="js-resetButton resetButton">Reset</button>
+        </div>
+      </div>
+      <div class="listsZone">
+        <div class="js-favList favList">Favourites</div>
+        <div class="js-list list">Complete List</div>
+      </div>
+    </main>
+
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
