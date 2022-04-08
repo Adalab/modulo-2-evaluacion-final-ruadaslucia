@@ -9,16 +9,20 @@
   </head>
   <body>
     <header></header>
-    <main>
-      <h1 class="title">Coctails Searcher</h1>
-      <input classs="js-inputSearch" type="text" />
-      <button class="js-searchButton">Search</button>
-      <button class="js-resetButton">Reset</button>
-      <div class="containerList">
-        <div class="sectionList"></div>
-        <div class="sectionFavs"></div>
+    <main class="main">
+      <h1 class="main__title">Coctails Searcher</h1>
+      <section class="main__searchZone">
+        <input classs=" input js-inputSearch" type="text" />
+        <button class="searchButton js-searchButton">Search</button>
+        <button class="resetButton js-resetButton">Reset</button>
+      </section>
+      <div class="main__lists">
+        <div class="main__lists--sectionFavs">Your Favourites</div>
+        <div class="main__lists--sectionList">Index of cocktails</div>
       </div>
     </main>
+    <include src="./partials/favourites.html"></include>
+    <include src="./partials/coctails.html"></include>
     <footer></footer>
     <script src="../assets/js/main.js"></script>
   </body>
