@@ -1,42 +1,38 @@
 'use strict';
-//----------------------declaro constantes
+//-----------constantes
+const input = document.querySelector('.js-input');
+const searchButton = document.querySelector('.js-button-search');
+const resetButton = document.querySelector('.js-button-reset');
 
-const inputSearchUser = document.querySelector('.js-inputSearchUser');
-const searchButton = document.querySelector('.js-searchButton');
-const resetButton = document.querySelector('.js-resetButton');
+const drinkList = document.querySelector('.js-drinkList');
 
-//----imagen por defecto
-const defaultImage =
-  'https://via.placeholder.com/210x295/ffffff/666666/?text=COCKTAIL';
+let urlServer = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input.value}`;
 
-//----url del pdf
-const urlServer = 'https://www.thecocktaildb.com/';
+//------------eventos
+searchButton.addEventListener('click', handleClickSearchButton);
 
-let results = [];
-
-//----valor que escribe el usuario
-function getTheInputValue() {
-  return inputSearchUser.value;
+//--------------funciones
+function paintDrinks() {
+  let html = '';
+  for (const drinkItem of drinks) {
+    html += `<li class="drinksLi">`;
+    html += `<h2><h4>This is:</h4> ${drinkItem.strDrink}</h2>`;
+    html += `<img class="drinksImages" src='${drinkItem.strDrinkThumb}'/>`;
+    html += `</li>`;
+  }
+  drinkList.innerHTML = html;
 }
-//--peticion con el valor al servidor
-function fetchdata() {
-  const inputValue = getTheInputValue();
-  fetch(`https://www.thecocktaildb.com/browse.php?s=${inputValue}`);
-  getTheInputValue((response) => response.json()).then((cocktailsData) => {
-    results = [];
-    for (const result of cocktailsData.results) {
-      results.push(result);
-    }
+
+let drinks = [];
+
+fetch(urlServer)
+  .then((response) => response.json())
+  .then((data) => {
+    //console.log(data.drinks);
+    drinks = data.drinks;
+    paintDrinks();
   });
-}
 
-// aqui dejo los listeners y los handleClick, me viene mejor.
-function handleClickSearch(event) {
+function handleClickSearchButton(event) {
   event.preventDefault();
 }
-function handleClickReset(event) {
-  event.preventDefault();
-}
-
-searchButton.addEventListener('click', handleClickSearch);
-resetButton.addEventListener('click', handleClickReset);

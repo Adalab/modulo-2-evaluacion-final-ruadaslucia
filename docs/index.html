@@ -5,27 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Big Apple Cocktails</title>
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="icon" href="" />
+    <link rel="icon" href="./assets/images/favicon.jpg" />
   </head>
   <body>
-    <main class="main">
-      <div class="main__searchZone">
-        <h1 class="main__searchZone--title">Cocktails Searcher</h1>
-        <div class="main__searchZone--searcher">
-          <input class="inputSearchUser js-inputSearchUser" type="text" />
-          <button class="searchButton js-searchButton">Search</button>
-          <button class="resetButton js-resetButton">Reset</button>
-        </div>
+    <form class="form" action="">
+      <input type="form__text" class="js-input" />
+      <button class="js-button-search">search</button>
+      <button class="js-button-reset">reset</button>
+    </form>
+    <section class="twoList">
+      <div class="favourites">
+        <h2>Favoritos</h2>
       </div>
-    </main>
-    <div class="listsHeader">
-      <h3 class="favTitle">Favourites</h3>
-      <h3 class="listTitle">Complete List</h3>
-    </div>
-    <div class="listsZone js-ListsZone">
-      <ul class="favList js-favList"></ul>
-      <ul class="list js-list"></ul>
-    </div>
+      <div class="allDrinks">
+        <h2 class="titleGeneralList">Listado de bebidas:</h2>
+        <ul class="drinkList js-drinkList"></ul>
+      </div>
+    </section>
+
+
     <script src="./assets/js/main.js"></script>
   </body>
 </html>

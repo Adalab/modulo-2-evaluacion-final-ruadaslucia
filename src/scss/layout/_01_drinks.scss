@@ -1,0 +1,31 @@
+.form{
+    margin:10px;
+    display: flex;
+    flex-direction: row;
+    &__text{
+        margin:10px;
+    }
+}
+.twoList{
+    display: flex;
+    flex-direction: row;
+}
+.favourites{
+    width: 50%;
+}
+.drinkList{
+    width: 50%;
+    display: flex;
+    flex-direction: column;    
+}
+.drinksLi{
+    list-style: none;
+}
+.drinksImages{
+    width: 100px;
+    margin:10px;
+
+}
+.titleGeneralList{
+    
+}
