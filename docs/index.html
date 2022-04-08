@@ -4,14 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Big Apple Cocktails</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poiret+One&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="icon" href="./assets/images/favicon.jpg" />
   </head>
   <body>
+    <header class="header">
+      <h1 class="header__title">BIG APPLE COCTAILS</h1>
+    </header>
+
     <form class="form" action="">
-      <input type="form__text" class="js-input" />
-      <button class="js-button-search">search</button>
-      <button class="js-button-reset">reset</button>
+      <input type="input" placeholder="Ejemplo:Margarita" class="js-input" />
+      <button class="button1 js-button-search">search</button>
+      <button class="button2 js-button-reset">reset</button>
     </form>
     <section class="twoList">
       <div class="favourites">
@@ -22,6 +32,10 @@
         <ul class="drinkList js-drinkList"></ul>
       </div>
     </section>
+
+    <footer>
+      <h2 class="footer">BEBE CON RESPONSABILIDAD ;)</h2>
+    </footer>
 
 
     <script src="./assets/js/main.js"></script>

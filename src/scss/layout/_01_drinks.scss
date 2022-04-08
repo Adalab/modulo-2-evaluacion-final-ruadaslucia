@@ -1,16 +1,38 @@
 .form{
     margin:10px;
     display: flex;
-    flex-direction: row;
-    &__text{
-        margin:10px;
-    }
+    flex-direction: row;    
+}
+input{
+    width: 200px;
+    height: 50px;
+    margin-right: 5px;
+    background-color:white;
+    border:solid crimson 2px;
+    border-radius:5px;
+}
+.button1{
+    width: 100px;
+    height: 50px;
+    margin-right: 5px;
+    background-color:white;
+    border:solid crimson 2px;
+    border-radius:5px;
+}
+.button2{
+    width: 100px;
+    height: 50px;
+    background-color:white;
+    border:solid crimson 2px;
+    border-radius:5px;
 }
 .twoList{
+    margin:10px;
     display: flex;
     flex-direction: row;
 }
 .favourites{
+    margin-top: 20px 0 20px 0;
     width: 50%;
 }
 .drinkList{
@@ -27,5 +49,5 @@
 
 }
 .titleGeneralList{
-    
+
 }
