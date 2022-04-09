@@ -1,91 +1,51 @@
 'use strict';
-//-----------constantes
-const input = document.querySelector('.js-input');
-const searchButton = document.querySelector('.js-button-search');
-const resetButton = document.querySelector('.js-button-reset');
+//--recupero los favoritos del ls
+let favorites = localStorage.getItem('favorites');
+
+const favoriteList = document.querySelector('.js-favorites');
+
+const inputSearch = document.querySelector('.js-input');
+const buttonSearch = document.querySelector('.js-button-search');
 const drinkList = document.querySelector('.js-drinkList');
+buttonSearch.addEventListener('click', handleClickBtnSearch);
 
-//unimos la url con el valor del input del usuario
-let urlServer = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input.value}`;
-
-//------------eventos botones
-searchButton.addEventListener('click', handleClickSearchButton);
-resetButton.addEventListener('click', handleClickResetButton);
-
-//--------------funciones
-function listenersDrinks() {
-  const liDrinks = document.querySelectorAll('.js-drinks'); //cojemos cada li
-  for (const item of liDrinks) {
-    item.addEventListener('click', handleClickDrinks); //le asociamos a cada li el evento click
-  }
-}
-//array que contiene la de bebidas
-let drinks = [];
-//-----funcion para pintar cada bebida en el html
-function paintDrinks() {
-  let html = '';
-
-  for (const drinkItem of drinks) {
-    let classFavorite = '';
-    const favoriteFoundIndex = favorites.findIndex((fav) => {
-      // versi está en favs
-      return fav.idDrink === drinkItem.idDrink;
+function handleClickBtnSearch(event) {
+  event.preventDefault();
+  let searchTerm = inputSearch.value;
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`;
+  console.log(searchTerm);
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      for (const drink of data.drinks) {
+        let liDrink = createBaseLiDrink(drink);
+        let buttonFav = document.createElement('button');
+        buttonFav.innerText = 'fav';
+        liDrink.appendChild(buttonFav);
+        buttonFav.addEventListener('click', () => {
+          addDrinkToFavorites(drink);
+        });
+        drinkList.appendChild(liDrink);
+      }
     });
-
-    if (favoriteFoundIndex !== -1) {
-      classFavorite = 'colorFav';
-    } else {
-      classFavorite = '';
-    }
-    html += `<li class="drinksLi js-drinks ${classFavorite}" id="${drinkItem.idDrink}">`;
-    html += `<h2> ${drinkItem.strDrink}</h2>`;
-    html += `<img class="drinksImages" src='${drinkItem.strDrinkThumb}'/>`;
-    html += `<button class="favBtn">&#128147</button>`;
-    html += `</li>`;
-  }
-  drinkList.innerHTML = html;
-  listenersDrinks();
 }
 
-//----listado favoritos
-let favorites = [];
-
-function handleClickDrinks(event) {
-  //console.log(event.target.getAttribute('id'));
-  const idDrinkSelected = event.currentTarget.idDrink;
-
-  const drinkFound = drinks.find((fav) => {
-    //buscar la info de la bebida
-    return fav.idDrink === idDrinkSelected;
-  });
-  const favoriteFoundIndex = favorites.findIndex((fav) => {
-    // versi está en favs
-    return fav.idDrink === idDrinkSelected;
-  });
-  if (favoriteFoundIndex === -1) {
-    //no lo encontró
-    favorites.push(drinkFound);
-  } else {
-    //eliminar de la list favoritos
-    favorites.splice(favoriteFoundIndex, 1); //que me elimine 1
-  }
-  paintDrinks();
-  console.log(favorites);
+function createBaseLiDrink(drink) {
+  let liDrink = document.createElement('li');
+  let liImageDrink = document.createElement('img');
+  liImageDrink.setAttribute('src', drink.strDrinkThumb);
+  liDrink.appendChild(liImageDrink);
+  let liNameDrink = document.createElement('p');
+  liNameDrink.innerText = drink.strDrink;
+  liDrink.appendChild(liNameDrink);
+  return liDrink;
 }
-//----------funcion para la bebida
 
-//-----------funciones manejadoras de los botones del formulario
-function handleClickSearchButton(event) {
-  event.preventDefault();
+function addDrinkToFavorites(drink) {
+  //meter la bebida en el [] favorites lin.3
+  //cambiar el color
+  //lo va a pintar en la lista de favoritos
+  let liDrink = createBaseLiDrink(drink);
+
+  favoriteList.appendChild(liDrink);
 }
-function handleClickResetButton(event) {
-  event.preventDefault();
-}
-//---------fetch drinks from server
-fetch(urlServer)
-  .then((response) => response.json())
-  .then((data) => {
-    //console.log(data.drinks);
-    drinks = data.drinks;
-    paintDrinks();
-  });
