@@ -1,10 +1,12 @@
+//----input y dos botones
 .form{
+    height: 100%;
     margin:10px;
     display:flex;
     flex-direction: row;
     justify-content: center;  
     align-items: center; 
-    padding-bottom: 30px; 
+    padding-top: 30px; 
 }
 .input{
     width: 300px;
@@ -41,15 +43,14 @@
     font-size: 18px;
 }
 
-// .hiden{
-//     display:none;
-// }
-.twoList{
+//----listas
+.container{
+    height: 100%;
     margin:10px;
     display: flex;
     flex-direction: row;
 }
-.favourites{
+.favorites{
     margin-top: 20px 0 20px 0;
     width: 50%;
     font-family: $poiret;
@@ -72,27 +73,22 @@
     flex-direction: column;
     font-family: $poiret;    
 }
-.drinksLi{
-    list-style: none;
-    border:solid 2px $fadedCrimson;
-    width: 500px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 10px 10px 10px 10px;
-    
-}
-.favBtn{
-    background-color:$fadedCrimson;
-    border:none;
-    border-radius: 5px;
-    margin: 0 10px 0 5px;
-    width: 50px;
-    height: 50px;
-}
-.drinksImages{
+.drinkList img{
     width: 100px;
-    margin:10px;
+    margin:10px;    
+}
+.drinkList li{
+    list-style: none;
+}
+.drinkList button{
+    width: 40px;
+    height: 20px;
+    background-color:$crimson;
+    border:solid $grey 2px;
+    border-radius:5px;
+    color:$white;
+    text-transform: uppercase;
+    font-family: $poiret;
 }
 .colorFav{
     background-color: $fadedCrimson;

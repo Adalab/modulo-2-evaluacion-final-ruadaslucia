@@ -1,12 +1,12 @@
 'use strict';
 //--recupero los favoritos del ls
 let favorites = localStorage.getItem('favorites');
-
 const favoriteList = document.querySelector('.js-favorites');
-
 const inputSearch = document.querySelector('.js-input');
 const buttonSearch = document.querySelector('.js-button-search');
+
 const drinkList = document.querySelector('.js-drinkList');
+
 buttonSearch.addEventListener('click', handleClickBtnSearch);
 
 function handleClickBtnSearch(event) {
@@ -42,10 +42,12 @@ function createBaseLiDrink(drink) {
 }
 
 function addDrinkToFavorites(drink) {
-  //meter la bebida en el [] favorites lin.3
+  //meter la bebida en el [] favorites lin.3 (local Storage)
   //cambiar el color
   //lo va a pintar en la lista de favoritos
   let liDrink = createBaseLiDrink(drink);
 
   favoriteList.appendChild(liDrink);
 }
+
+//boton reset
