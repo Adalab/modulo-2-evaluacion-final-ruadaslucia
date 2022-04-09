@@ -24,8 +24,20 @@ let drinks = [];
 //-----funcion para pintar cada bebida en el html
 function paintDrinks() {
   let html = '';
+
   for (const drinkItem of drinks) {
-    html += `<li class="drinksLi js-drinks hiden" id="${drinkItem.idDrink}">`;
+    let classFavorite = '';
+    const favoriteFoundIndex = favorites.findIndex((fav) => {
+      // versi está en favs
+      return fav.idDrink === drinkItem.idDrink;
+    });
+
+    if (favoriteFoundIndex !== -1) {
+      classFavorite = 'colorFav';
+    } else {
+      classFavorite = '';
+    }
+    html += `<li class="drinksLi js-drinks ${classFavorite}" id="${drinkItem.idDrink}">`;
     html += `<h2> ${drinkItem.strDrink}</h2>`;
     html += `<img class="drinksImages" src='${drinkItem.strDrinkThumb}'/>`;
     html += `<button class="favBtn">&#128147</button>`;
@@ -39,7 +51,7 @@ function paintDrinks() {
 let favorites = [];
 
 function handleClickDrinks(event) {
-  console.log(event.target.getAttribute('id'));
+  //console.log(event.target.getAttribute('id'));
   const idDrinkSelected = event.currentTarget.idDrink;
 
   const drinkFound = drinks.find((fav) => {
@@ -57,6 +69,7 @@ function handleClickDrinks(event) {
     //eliminar de la list favoritos
     favorites.splice(favoriteFoundIndex, 1); //que me elimine 1
   }
+  paintDrinks();
   console.log(favorites);
 }
 //----------funcion para la bebida
