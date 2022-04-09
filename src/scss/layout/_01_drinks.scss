@@ -1,17 +1,17 @@
 .form{
     margin:10px;
-    display: flex;
+    display:flex;
     flex-direction: row;
     justify-content: center;  
     align-items: center; 
     padding-bottom: 30px; 
 }
-input{
+.input{
     width: 200px;
     height: 50px;
     margin-right: 5px;
-    background-color:white;
-    border:solid crimson 2px;
+    background-color:$white;
+    border:solid $crimson 2px;
     border-radius:5px;
     padding: 5px;
 }
@@ -40,6 +40,7 @@ input{
     font-weight: 400;
     font-size: 18px;
 }
+
 // .hiden{
 //     display:none;
 // }
@@ -73,6 +74,20 @@ input{
 }
 .drinksLi{
     list-style: none;
+    border:solid 2px $fadedCrimson;
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px 10px 10px 10px;
+    
+}
+.favBtn{
+    background-color: $white;
+    border-color:$fadedCrimson;
+    margin: 0 10px 0 5px;
+    width: 50px;
+    height: 50px;
 }
 .drinksImages{
     width: 100px;

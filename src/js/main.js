@@ -27,6 +27,7 @@ function paintDrinks() {
     html += `<li class="drinksLi js-drinks hiden"  id=${drinkItem.idDrink}>`;
     html += `<h2> ${drinkItem.strDrink}</h2>`;
     html += `<img class="drinksImages" src='${drinkItem.strDrinkThumb}'/>`;
+    html += `<button class="favBtn">&#128147</button>`;
     html += `</li>`;
   }
   drinkList.innerHTML = html;

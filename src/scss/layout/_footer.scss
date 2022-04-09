@@ -15,11 +15,13 @@
         &--left{
             width: 60%;
             text-align: start;
+            color:$grey;
         }
 
         &--right{
             width: 40%;
             text-align: end;
+            color:$crimson;
 
         }       
     }
