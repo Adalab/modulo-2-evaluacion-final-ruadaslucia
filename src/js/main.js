@@ -25,7 +25,7 @@ function handleClickBtnSearch(event) {
   //variable con el valor del input
   let searchTerm = inputSearch.value;
   const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`;
-  console.log(searchTerm);
+  //console.log(searchTerm);
   //fetch para traer la info de la api
   fetch(url)
     .then((response) => response.json())
