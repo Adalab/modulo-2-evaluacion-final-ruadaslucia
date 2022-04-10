@@ -1,11 +1,9 @@
 'use strict';
 //--recupero los favoritos del ls
 let favorites = localStorage.getItem('favorites');
-
 const favoriteList = document.querySelector('.js-favorites');
 const inputSearch = document.querySelector('.js-input');
 const buttonSearch = document.querySelector('.js-button-search');
-
 const drinkList = document.querySelector('.js-drinkList');
 
 if (favorites === null) {
@@ -25,6 +23,7 @@ function handleClickBtnSearch(event) {
   event.preventDefault();
   let searchTerm = inputSearch.value;
   const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`;
+  //console.log(searchTerm);
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -75,31 +74,15 @@ function addDrinkToFavorites(drink, liDrinkResult) {
   removeFavButttonAndChangeColors(liDrinkResult);
 
   //crear el fav y añadirlo a la lista de favs
-  let liDrink = createLiFavoriteElement(drink, liDrinkResult);
-  liDrinkResult.classList.add('clickedFavorites');
-  liDrinkResult.classList.remove('regularItem');
+  let liDrink = createLiFavoriteElement(drink);
   favoriteList.appendChild(liDrink);
   favorites.push(drink);
   addToLocalStorage(favorites);
 }
 
-function createLiFavoriteElement(drink, liDrinkResult) {
+function createLiFavoriteElement(drink) {
   let liDrink = createBaseLiDrink(drink);
-  let removeButton = document.createElement('button');
-  removeButton.innerText = '-';
-  removeButton.addEventListener('click', () => {
-    removeDrinkFromFavorites(drink, liDrink, liDrinkResult);
-  });
-  liDrink.appendChild(removeButton);
   return liDrink;
-}
-
-function removeDrinkFromFavorites(drink, liDrink, liDrinkResult) {
-  favorites.splice(drink, 1);
-  favoriteList.removeChild(liDrink);
-  addToLocalStorage(favorites);
-  liDrinkResult.classList.remove('clickedFavorites');
-  liDrinkResult.classList.add('regularItem');
 }
 
 function addToLocalStorage(favorites) {
@@ -112,4 +95,5 @@ function removeFavButttonAndChangeColors(liDrink) {
   liFavbutton.classList.add('notDisplay');
   //poner estilos al fav en el list de resultados
   liDrink.classList.add('clickedFavorites');
+  liDrink.classList.remove('regularItem');
 }

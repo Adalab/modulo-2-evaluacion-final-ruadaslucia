@@ -87,13 +87,15 @@
     margin:10px; 
 }
 .clickedFavorites{
-    color: lightgray;
-    background-color: $black;    
+    color: $grey;
+    background-color: $fadedCrimson; 
+    font-weight: 600;   
 }
 
 .regularItem{
     background-color: lightgrey;
     color:$black;
+    font-weight: 600;
 }
 
 .drinkList button{
@@ -109,5 +111,5 @@
 }
 
 .notDisplay{
-    display: none;
+    display:none;
 }
