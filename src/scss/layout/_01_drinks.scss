@@ -1,4 +1,5 @@
 //----input y dos botones
+
 .form{
     height: 100%;
     margin:10px;
@@ -45,7 +46,7 @@
 
 //----listas genetal
 .container{
-    height: 100%;
+    height: 60vh;
     margin:10px;
     display: flex;
     flex-direction: row;
@@ -56,6 +57,10 @@
     font-family: $poiret;
     text-align: center;
     color:$grey;
+    margin-bottom: 30px;
+}
+.favorites h2{
+    margin-bottom: 30px;
 }
 .allDrinks{
     width: 50%;
@@ -66,30 +71,36 @@
     text-align: center;
     width:100%;
     color:$grey;
+    margin-bottom: 30px;
 }
 
-.drinkList{
-    
-    display: flex;
+.drinkList{    
+    display:flex;
     flex-direction:column;
-    font-family: $poiret;    
+    font-family: $poiret;   
+    
 }
 .drinkList img{
     width: 100px;
-    margin:10px;    
+    margin:10px;  
+    border-radius: 10px;  
 }
 .drinkList li{
     list-style: none;
+    width: 350px;
     margin-bottom: 10px;
+    border-radius: 10px; 
 }
 .favorites li img{
     width: 100px;
     margin:10px; 
+    border: solid $fadedCrimson 5px;
+    border-radius: 10px;
 }
 .clickedFavorites{
     color: $grey;
     background-color: $fadedCrimson; 
-    font-weight: 600;   
+    font-weight: 700;   
 }
 
 .regularItem{
@@ -108,6 +119,7 @@
     text-transform: uppercase;
     font-family: $poiret;
     font-weight: 600;
+    margin: 10px 0 10px 0;
 }
 
 .notDisplay{
