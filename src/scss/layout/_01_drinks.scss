@@ -43,7 +43,7 @@
     font-size: 18px;
 }
 
-//----listas
+//----listas genetal
 .container{
     height: 100%;
     margin:10px;
@@ -57,20 +57,21 @@
     text-align: center;
     color:$grey;
 }
-.titleGeneralList{
-    text-align: center;
-    width:100%;
-    color:$grey;
-}
 .allDrinks{
     width: 50%;
     font-family: $poiret;
     text-align: center;
 }
+.titleGeneralList{
+    text-align: center;
+    width:100%;
+    color:$grey;
+}
+
 .drinkList{
     
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     font-family: $poiret;    
 }
 .drinkList img{
@@ -79,6 +80,13 @@
 }
 .drinkList li{
     list-style: none;
+}
+.favorites li img{
+    width: 100px;
+    margin:10px; 
+}
+.clickedFavorites{
+    border:solid 4px $crimson;
 }
 .drinkList button{
     width: 40px;
@@ -89,7 +97,6 @@
     color:$white;
     text-transform: uppercase;
     font-family: $poiret;
+    font-weight: 600;
 }
-.colorFav{
-    background-color: $fadedCrimson;
-}
+

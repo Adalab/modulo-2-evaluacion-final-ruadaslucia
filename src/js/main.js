@@ -23,7 +23,7 @@ function handleClickBtnSearch(event) {
         buttonFav.innerText = 'fav';
         liDrink.appendChild(buttonFav);
         buttonFav.addEventListener('click', () => {
-          addDrinkToFavorites(drink);
+          addDrinkToFavorites(drink, liDrink);
         });
         drinkList.appendChild(liDrink);
       }
@@ -32,22 +32,25 @@ function handleClickBtnSearch(event) {
 
 function createBaseLiDrink(drink) {
   let liDrink = document.createElement('li');
+
   let liImageDrink = document.createElement('img');
   liImageDrink.setAttribute('src', drink.strDrinkThumb);
   liDrink.appendChild(liImageDrink);
+
   let liNameDrink = document.createElement('p');
   liNameDrink.innerText = drink.strDrink;
   liDrink.appendChild(liNameDrink);
+
   return liDrink;
 }
 
-function addDrinkToFavorites(drink) {
+function addDrinkToFavorites(drink, liDrinkResult) {
   //meter la bebida en el [] favorites lin.3 (local Storage)
   //cambiar el color
   //lo va a pintar en la lista de favoritos
   let liDrink = createBaseLiDrink(drink);
-
   favoriteList.appendChild(liDrink);
+  liDrinkResult.classList.add('clickedFavorites');
 }
 
 //boton reset
