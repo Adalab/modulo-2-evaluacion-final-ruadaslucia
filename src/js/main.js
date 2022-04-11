@@ -6,6 +6,8 @@ const favoriteList = document.querySelector('.js-favorites');
 const inputSearch = document.querySelector('.js-input');
 const buttonSearch = document.querySelector('.js-button-search');
 const drinkList = document.querySelector('.js-drinkList');
+const buttonReset = document.querySelector('.js-button-reset');
+
 //if para
 if (favorites === null) {
   favorites = [];
@@ -104,4 +106,13 @@ function removeFavButttonAndChangeColors(liDrink) {
   //poner estilos al fav en el list de resultados
   liDrink.classList.add('clickedFavorites');
   liDrink.classList.remove('regularItem');
+}
+
+buttonReset.addEventListener('click', handleClickButtonReset);
+
+function handleClickButtonReset() {
+  favorites = [];
+  favoriteList.innerHTML = '';
+  localStorage.removeItem('favorites');
+  inputSearch.value = '';
 }
