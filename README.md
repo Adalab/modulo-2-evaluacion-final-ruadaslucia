@@ -1,4 +1,4 @@
-# BIG APPLE COCKTAILS: Evaluación final Modulo 2 Java Script: Lucía Acuña Ruadas
+# Evaluación final Modulo 2 Java Script: Lucía Acuña Ruadas
 ![image](https://user-images.githubusercontent.com/94449849/162702067-d453ff2f-06fa-4554-932b-85600ab3ba1f.png)
 
 
@@ -24,15 +24,28 @@ El ejercicio también tiene una parte de maquetación con HTML y Sass.
 
 
 
-2- Formulario de búsqueda:
-- Al hacer clic sobre el botón de Buscar, la aplicación debe conectarse al API abierto de
-TheCocktailDB.( https://www.thecocktaildb.com/ ), echando un vistazo al JSON primero ( https://www.thecocktaildb.com/api/json/v1/1/search.php?s= )
-- Para construir la URL de búsqueda hay que recoger el texto que ha introducido la usuaria en el
-campo de búsqueda.
-- Por cada cóctel contenido en el resultado de la búsqueda hay que pintar una tarjeta donde
-mostramos una imagen del cóctel y el nombre.
-- Algunos cóckteles no tienen foto por lo que se utilizará un repuesto :https://via.placeholder.com/210x295/ffffff/666666/?text=cocktail
+2- Finalidad de la web:
 
-## Materiales usados
+- Buscar cóckteles en una lista usando un formulario sencillo e intuitivo.
+- Marcar tus cóckteles favoritos  gracias al botón fav y almacenarlos en una lista aparte.
+- Refrescar la página sin que se borren tus favoritos almacenados en el local storage.
+- Hacer click en el botón reset para limpiar las dos listas y el cámpo de busqueda.
+- Cuando se marque un favorito que este cambie de color tanto el fondo como la letra y así se diferencien.
 
-> **NOTA:**
+
+## Herramientas utilizadas:
+- Visual Studio Code
+- Web Starter Kit de Adalab
+- Dev Tools de Chrome
+
+## Webs y materiales consultados:
+- Materiales y ejercicios de Adalab Modulo 2
+- Grabaciones de Zoom de las clases de los profesores de Adalab
+- Stak Overflow
+
+## Además he utilizado:
+- Java Script
+- HTML (en partials)
+- CSS (SASS en particioines)
+
+> **NOTA:** Hay cosas que me faltan para gestionar las bebidas una vez almacenadas en la lista de favoritos, como añadir un botón a cada una para eliminarlas de esa lista y devolverlas a la lista original, por si se cambia de opinión.
