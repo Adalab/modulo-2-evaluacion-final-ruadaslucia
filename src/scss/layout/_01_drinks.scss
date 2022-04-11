@@ -71,13 +71,13 @@
     text-align: center;
     width:100%;
     color:$grey;
-    margin-bottom: 30px;
 }
 
 .drinkList{    
     display:flex;
     flex-direction:column;
     font-family: $poiret;   
+    margin-bottom: 20px;
     
 }
 .drinkList img{
@@ -97,10 +97,17 @@
     border: solid $fadedCrimson 5px;
     border-radius: 10px;
 }
+
 .clickedFavorites{
     color: $grey;
     background-color: $fadedCrimson; 
     font-weight: 700;   
+}
+.clickedFavorites button{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color: white;
 }
 
 .regularItem{

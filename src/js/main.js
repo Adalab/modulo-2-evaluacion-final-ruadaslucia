@@ -72,11 +72,21 @@ function addDrinkToFavorites(drink, liDrinkResult) {
   let liDrink = createLiFavoriteElement(drink);
   favoriteList.appendChild(liDrink);
   favorites.push(drink);
+
   addToLocalStorage(favorites);
 }
 
 function createLiFavoriteElement(drink) {
   let liDrink = createBaseLiDrink(drink);
+  let buttonDelete = document.createElement('button');
+  buttonDelete.innerText = '-';
+  liDrink.appendChild(buttonDelete);
+  buttonDelete.addEventListener('click', () => {
+    if ((liDrink.contains = buttonDelete)) {
+      liDrink = '';
+    }
+  });
+
   return liDrink;
 }
 
